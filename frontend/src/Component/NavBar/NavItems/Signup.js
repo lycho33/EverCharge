@@ -1,5 +1,5 @@
 import React, { useState } from 'react'
-import { register } from '../redux/action'
+import { register } from '../../../redux/action'
 import { connect } from 'react-redux'
 
 const Signup = ( { register } ) => {

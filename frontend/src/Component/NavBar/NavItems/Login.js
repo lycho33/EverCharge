@@ -1,5 +1,5 @@
 import React, { useState } from 'react'
-import { login } from '../redux/action'
+import { login } from '../../../redux/action'
 import { connect } from 'react-redux'
 
 const Login = ( { login }) => {
