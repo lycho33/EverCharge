@@ -7,6 +7,11 @@ const loginUser = userObj => ({
     payload: userObj
 })
 
+const authFailed = error => ({
+    type: 'AUTH_FAILED',
+    payload: error
+})
+
 export const register = (user) => {
     return (dispatch) => {
       dispatch({ type: 'CREATING_OR_GETTING_USER' })
@@ -15,8 +20,16 @@ export const register = (user) => {
           if(r.statusText === 'OK'){
             localStorage.setItem('token', r.data.token)
             dispatch(loginUser(r.data.user))
-          } 
+          } else {
+              dispatch(authFailed(r.data.errors))
+          }
       })
       .catch(error => console.log('api errors:', error))
     }
 }
+
+// export const login = (user) => {
+//     return (dispatch) => {
+
+//     }
+// }
