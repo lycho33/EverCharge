@@ -1,0 +1,10 @@
+.home-container img {
+    position: absolute;
+    width: 771px;
+    height: 550px;
+    left: 334px;
+    top: 315px;
+
+    /* background: url(MS-Specs-Hero-Desktop.jpg); */
+    /* mix-blend-mode: color-dodge; */
+}
