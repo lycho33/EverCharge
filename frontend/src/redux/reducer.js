@@ -9,10 +9,12 @@ export function reducer(state=initialState, action){
         case 'LOGIN_USER':
             const newUser = state.all.find(user => user.id === action.payload.id)
             if(newUser){
-                return {...state, currentUser: action.payload, errors: []}
+                return {...state, user: action.payload, errors: []}
             } else {
-                return {...state, all: state.all.concat(action.payload), currentUser: action.payload, errors: []}
+                return {...state, all: state.all.concat(action.payload), user: action.payload, errors: []}
             }
+        case 'LOGOUT':
+            return {...state, user: {} }
         case 'CREATING_OR_GETTING_USER':
             return {...state, errors: []}
         default:

@@ -21,15 +21,29 @@ export const register = (user) => {
             localStorage.setItem('token', r.data.token)
             dispatch(loginUser(r.data.user))
           } else {
-              dispatch(authFailed(r.data.errors))
+              dispatch(authFailed(r.data.error))
           }
       })
       .catch(error => console.log('api errors:', error))
     }
 }
 
-// export const login = (user) => {
-//     return (dispatch) => {
+export const login = (user) => {
+    return (dispatch) => {
+        dispatch({ type: 'CREATING_OR_GETTING_USER' })
+        axios.post(`${URL}/login`, {user})
+        .then(r => {
+            if(r.data.error){
+                dispatch(authFailed(r.data.error))
+            } else {
+                localStorage.setItem('token', r.data.token)
+                dispatch(loginUser(r.data.user))
+            }
+        })
+        .catch(error => console.log('api errors:', error))
+    }
+}
 
-//     }
-// }
+export const logoutUser = () => {
+    return { type: 'LOGOUT'}
+}

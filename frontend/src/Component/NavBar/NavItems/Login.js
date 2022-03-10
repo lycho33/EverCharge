@@ -1,5 +1,5 @@
 import React, { useState } from 'react'
-import { login } from '../../redux/action'
+import { login } from '../redux/action'
 import { connect } from 'react-redux'
 
 const Login = ( { login }) => {
@@ -25,7 +25,7 @@ const handleSubmit = (e) => {
 }
   return (
     <div>
-      <h1>Log In</h1>
+      <h2>Log In</h2>
 
       <form onSubmit={handleSubmit}>
           <input type="text" placeholder="username" name="username" value={state.username} onChange={handleInputChange}/>
