@@ -47,3 +47,13 @@ export const login = (user) => {
 export const logoutUser = () => {
     return { type: 'LOGOUT'}
 }
+
+export const autoLogin = () => {
+    return (dispatch) => {
+        const token = localStorage.token
+        axios.get(`${URL}/auto_login`, {headers: {"Authorization": `Bearer ${token}`}})
+        .then(r => {
+            dispatch(loginUser(r.data))
+        })
+    }
+}
