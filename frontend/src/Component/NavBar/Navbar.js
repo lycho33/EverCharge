@@ -1,5 +1,7 @@
 import React from 'react'
 import '../../css/Navbar.css'
+import { GiPowerLightning } from 'react-icons/gi';
+import lightning_icon from '../../imgs/lightning_icon.png'
 import Login from './NavItems/Login'
 import Signup from './NavItems/Signup'
 import Logout from './NavItems/Logout'
@@ -10,19 +12,25 @@ function Navbar() {
 
     const user = useSelector(state => state.user)
     return (
-        <div className='navbar'>
-            {(user.id) ?
-                <div className='registration'>
-                    <Link to="/logout" className='link'>Log Out</Link>
+        <>
+            <div className='grid-navbar'>
+                <div className='grid-navbar-item home'>  
+                    <img src={lightning_icon} />
+                    <h1>EverCharge</h1>
                 </div>
-            :
-                <div className='registration'>
-                    <Link to="/login" className='link'>Login |</Link>&nbsp;
-                    <Link to="/signup" className='link'>Sign Up</Link><br /><br />
-                </div>
-              
-            } 
-        </div>
+                {(user.id) ?
+                    <div className='grid-navbar-item registration'>
+                        <Link to="/logout" className='link'>Log Out</Link>
+                    </div>
+                :
+                    <div className='grid-navbar-item registration'>
+                        <Link to="/login" className='link'>Login |</Link>&nbsp;
+                        <Link to="/signup" className='link'>Sign Up</Link><br /><br />
+                    </div>
+                
+                } 
+            </div>
+        </>
     )
 
 //   return (
