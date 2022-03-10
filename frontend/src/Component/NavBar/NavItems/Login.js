@@ -1,8 +1,15 @@
 import React, { useState } from 'react'
 import { login } from '../../../redux/action'
 import { connect } from 'react-redux'
+import {useNavigate, userNavigate} from 'react-router-dom'
 
 const Login = ( { login }) => {
+
+  let navigate = useNavigate()
+
+  const redirect = () => {
+    navigate('/')
+  }
 
   const [state, setState] = useState({
     username: '',
@@ -20,7 +27,7 @@ const handleSubmit = (e) => {
     e.preventDefault()
     console.log(state)
     login(state)
-    // redirect()
+    redirect()
     
 }
   return (
