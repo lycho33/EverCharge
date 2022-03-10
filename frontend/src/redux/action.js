@@ -53,7 +53,11 @@ export const autoLogin = () => {
         const token = localStorage.token
         axios.get(`${URL}/auto_login`, {headers: {"Authorization": `Bearer ${token}`}})
         .then(r => {
-            dispatch(loginUser(r.data))
+            if(r.message){
+                localStorage.removeItem('token')
+            } else {
+                dispatch(loginUser(r.data))
+            }
         })
     }
 }

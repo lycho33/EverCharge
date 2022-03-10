@@ -1,7 +1,7 @@
 import React, { useState } from 'react'
 import { login } from '../../../redux/action'
 import { connect } from 'react-redux'
-import {useNavigate, userNavigate} from 'react-router-dom'
+import {useNavigate} from 'react-router-dom'
 
 const Login = ( { login }) => {
 

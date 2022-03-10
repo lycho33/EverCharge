@@ -1,10 +1,10 @@
 import React from 'react'
-import Signup from './NavBar/NavItems/Signup'
-import Login from './NavBar/NavItems/Login'
 
 function Home() {
   return (
     <div>
+      <br />
+      <br />
         Home
     </div>
   )

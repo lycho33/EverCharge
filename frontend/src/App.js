@@ -1,4 +1,4 @@
-import './App.css';
+import './css/App.css';
 import { useEffect } from 'react';
 import { Route, Routes } from 'react-router-dom'
 import Home from './Component/Home';

@@ -1,7 +1,7 @@
 import React from 'react'
 import { logoutUser } from '../../../redux/action'
 import { connect } from 'react-redux'
-import {useNavigate, userNavigate} from 'react-router-dom'
+import {useNavigate} from 'react-router-dom'
 
 function Logout({ logoutUser }) {
 
